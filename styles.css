@@ -1,8 +1,8 @@
 * {
-    background-color: gainsboro;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: gainsboro;
     font-family: 'permanent_markerregular';
 }
 
@@ -40,12 +40,12 @@
     height: 100px;
     width: 100px;
     border: 2px solid black;
-    font-size: 4rem;
+    font-size: 4.5rem;
 }
 
 button {
-    background-color: whitesmoke;
-    /*color: whitesmoke;*/
+    background-color: mintcream;
+    color: black;
     cursor: pointer;
     border: none;
     border-radius: 5px;
@@ -54,4 +54,8 @@ button {
     padding: 5px 5px;
     text-align: center;
     width: 5rem;
+}
+
+button:hover {
+    opacity: 0.75;
 }
