@@ -19,18 +19,23 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
+    gap: 10px;
 }
 
 .board-container {
     display: grid;
     grid-template-columns: repeat(3, auto);
-    border: 1px solid black;
+    border: 2px solid black;
     /*justify-content: center;
     align-content: center;*/
 }
 
 .cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100px;
     width: 100px;
     border: 2px solid black;
+    font-size: 4rem;
 }
