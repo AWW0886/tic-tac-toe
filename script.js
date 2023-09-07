@@ -13,3 +13,30 @@ const winningCombos = [
 ];
 let cellChoices = ['', '', '', '', '', '', '', '', ''];
 let currentPlayer = 'X';
+let playing = false;
+
+startGame();
+
+function startGame() {
+
+}
+
+function cellClick() {
+
+}
+
+function placeMark() {
+    
+}
+
+function changePlayer() {
+
+}
+
+function checkWinner() {
+
+}
+
+function restartGame() {
+
+}
