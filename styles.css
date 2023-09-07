@@ -50,10 +50,12 @@ h1 {
     justify-content: space-around;
     /*border: 1px solid black;*/
     width: 300px;
+    font-size: 1.5rem;
 }
 
-p {
-    font-size: 1.5rem;
+.turn-text {
+    font-size: 1.75rem;
+    margin-top: -5px;
     /*border: 1px solid black;*/
 }
 
