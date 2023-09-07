@@ -1,4 +1,5 @@
 const cellBlocks = document.querySelectorAll('.cell');
+const gameRound = document.querySelector('.round-text');
 const turnText = document.querySelector('.turn-text');
 const restartButton = document.querySelector('.restart-button');
 const winningCombos = [
@@ -11,6 +12,8 @@ const winningCombos = [
     [0, 4, 8],
     [2, 4, 6]
 ];
+
+
 let cellChoices = ['', '', '', '', '', '', '', '', ''];
 let currentPlayer = 'X';
 let round = 1;
@@ -27,6 +30,7 @@ function startGame() {
         cell.textContent = ''; 
         cell.addEventListener('click', cellClick, {once: true});
     });
+    gameRound.textContent = `Round: ${round}`;
     turnText.textContent = `${currentPlayer}'s turn`;
 //    playing = true;
 }
