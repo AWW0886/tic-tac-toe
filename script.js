@@ -1,5 +1,5 @@
 const cellBlocks = document.querySelectorAll('.cell');
-const displayText = document.querySelector('.display-text');
+const turnText = document.querySelector('.turn-text');
 const restartButton = document.querySelector('.restart-button');
 const winningCombos = [
     [0, 1, 2],
@@ -13,6 +13,7 @@ const winningCombos = [
 ];
 let cellChoices = ['', '', '', '', '', '', '', '', ''];
 let currentPlayer = 'X';
+let round = 1;
 let playing = false;
 
 startGame();
@@ -20,7 +21,7 @@ startGame();
 function startGame() {
     cellBlocks.forEach(cell => cell.addEventListener('click', cellClick, {once: true}));
     restartButton.addEventListener('click', restartGame);
-    displayText.textContent = `${currentPlayer}'s turn`;
+    turnText.textContent = `${currentPlayer}'s turn`;
     playing = true;
 }
 
@@ -31,7 +32,7 @@ function cellClick() {
      
     placeMark(this, cellIndex);
     changePlayer();
-    /*checkWinner();*/
+    checkWinner();
 }
  
 function placeMark(cellBlock, index) {
@@ -40,13 +41,29 @@ function placeMark(cellBlock, index) {
 }
 
 function changePlayer() {
-    currentPlayer = (currentPlayer === 'X') ? 'O' : 'X';
-    displayText.textContent = `${currentPlayer}'s turn`;
+    currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
+    turnText.textContent = `${currentPlayer}'s turn`;
 }
 
 function checkWinner() {
 
-}
+    for(let i = 0; i < winningCombos.length; i++) {
+        let combo = winningCombos[i];
+        let cellOne = cellChoices[combo[0]];
+        let cellTwo = cellChoices[combo[1]];
+        let cellThree = cellChoices[combo[2]];
+
+        if(cellOne == cellTwo && cellTwo == cellThree) {
+            turnText.textContent = `${currentPlayer} wins!`
+            playing = false;
+
+        } else if(!cellChoices.includes('')) {
+            turnText.textContent = `Draw!`;
+            playing = false;
+        }
+    }
+
+} 
 
 function restartGame() {
 
