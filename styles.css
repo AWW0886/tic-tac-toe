@@ -53,8 +53,8 @@ h1 {
 }
 
 .turn-text {
-    font-size: 1.75rem;
-    margin-top: -5px;
+    font-size: 2rem;
+    margin-top: -10px;
 }
 
 button {
@@ -72,3 +72,39 @@ button {
 button:hover {
     opacity: 0.75;
 }
+/*
+div[index='0'] {
+    border-top: 0;
+    border-left: 0;
+}
+
+div[index='1'] {
+    border-top: 0;
+}
+
+div[index='2'] {
+    border-top: 0;
+    border-right: 0;
+}
+
+div[index='3'] {
+    border-left: 0;
+}
+
+div[index='5'] {
+    border-right: 0;
+}
+
+div[index='6'] {
+    border-bottom: 0;
+    border-left: 0;
+}
+
+div[index='7'] {
+    border-bottom: 0;
+}
+
+div[index='8'] {
+    border-right: 0;
+    border-bottom: 0;
+}*/
