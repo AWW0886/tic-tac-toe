@@ -1,8 +1,6 @@
 const cellBlocks = document.querySelectorAll('.cell');
 const gameRound = document.querySelector('.round-text');
 const score = document.querySelector('.score-text');
-//const scoreX = document.querySelector('.score-x');
-//const scoreO = document.querySelector('.score-o');
 const turnText = document.querySelector('.turn-text');
 const restartButton = document.querySelector('.restart-button');
 const winningCombos = [
@@ -16,13 +14,11 @@ const winningCombos = [
     [2, 4, 6]
 ];
 
-
 let cellChoices = ['', '', '', '', '', '', '', '', ''];
 let currentPlayer = 'X';
 let scoreX = 0;
 let scoreO = 0;
 let round = 1;
-//let playing = false;
 
 startGame();
 
@@ -38,14 +34,10 @@ function startGame() {
     gameRound.textContent = `Round: ${round}`;
     score.textContent = `X: ${scoreX} / O: ${scoreO}`;
     turnText.textContent = `${currentPlayer}'s turn`;
-//    playing = true;
 }
 
 function cellClick() {
     let cellIndex = this.getAttribute('id');
-
-//    if(cellChoices[cellIndex])
-     
     placeMark(this, cellIndex);
     checkWinner();
 }
@@ -63,30 +55,19 @@ function changePlayer() {
 function checkWinner() {
     let winRound = false;
 
-    for(let i = 0; i < winningCombos.length; i++) {
+    for (let i = 0; i < winningCombos.length; i++) {
         let combo = winningCombos[i];
         let cellOne = cellChoices[combo[0]];
         let cellTwo = cellChoices[combo[1]];
         let cellThree = cellChoices[combo[2]];
 
-        if(cellOne == '' || cellTwo == '' || cellThree == '') {
+        if (cellOne == '' || cellTwo == '' || cellThree == '') {
             continue;
         }
-
-        if(cellOne == cellTwo && cellTwo == cellThree) {
+        if (cellOne == cellTwo && cellTwo == cellThree) {
             winRound = true;
-//            if (currentPlayer = 'X') {
-//                scoreX++;
-//            } else if (currentPlayer = 'O') {
-//                scoreO++;
-//            }
             break;
-//        }
-//        if (currentPlayer = 'X') {
-//            scoreX++;
-//        } else if (currentPlayer = 'O') {
-//            scoreO++;
-        }
+        } 
     }
 
     if (winRound) {
@@ -94,24 +75,17 @@ function checkWinner() {
         cellBlocks.forEach(cell =>
             cell.removeEventListener('click', cellClick));
         round++;
-//        scoreX++;
-//        playing = false;
+
         if (currentPlayer == 'X') {
             scoreX++;
         } else {
             scoreO++;
         }
-        
-    } else if(!cellChoices.includes('')) {
+            
+    } else if (!cellChoices.includes('')) {
         turnText.textContent = `Draw!`;
         round++;
-//        playing = false;
-        
     } else {
         changePlayer();
     }
-} 
-
-//function restartGame() {
-
-//}
+}
