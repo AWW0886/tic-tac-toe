@@ -48,7 +48,6 @@ h1 {
 .display-text {
     display: flex;
     justify-content: space-around;
-    /*border: 1px solid black;*/
     width: 300px;
     font-size: 1.5rem;
 }
@@ -56,7 +55,6 @@ h1 {
 .turn-text {
     font-size: 1.75rem;
     margin-top: -5px;
-    /*border: 1px solid black;*/
 }
 
 button {
@@ -66,7 +64,6 @@ button {
     border: none;
     border-radius: 5px;
     box-shadow: 2.5px 2.5px 5px grey;
-    /*margin: 0px 5px 5px;*/
     padding: 5px 5px;
     text-align: center;
     width: 5rem;
