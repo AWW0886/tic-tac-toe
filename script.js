@@ -18,26 +18,30 @@ let playing = false;
 startGame();
 
 function startGame() {
-    cellBlocks.forEach(cell => cell.addEventListener('click', cellClick));
+    cellBlocks.forEach(cell => cell.addEventListener('click', cellClick, {once: true}));
     restartButton.addEventListener('click', restartGame);
     displayText.textContent = `${currentPlayer}'s turn`;
     playing = true;
 }
 
-function cellClick() { 
+function cellClick() {
     let cellIndex = this.getAttribute('id');
+
     /*if(cellChoices[cellIndex])*/
+     
     placeMark(this, cellIndex);
+    changePlayer();
+    /*checkWinner();*/
 }
  
-function placeMark(cell, index) {
+function placeMark(cellBlock, index) {
     cellChoices[index] = currentPlayer;
-    cell.textContent = currentPlayer;
+    cellBlock.textContent = currentPlayer;
 }
 
 function changePlayer() {
-    /*currentPlayer = !currentPlayer;
-    displayText.textContent = `${currentPlayer}'s turn`;*/
+    currentPlayer = (currentPlayer === 'X') ? 'O' : 'X';
+    displayText.textContent = `${currentPlayer}'s turn`;
 }
 
 function checkWinner() {
