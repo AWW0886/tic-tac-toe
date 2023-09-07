@@ -26,7 +26,7 @@ restartButton.addEventListener('click', startGame);
 
 function startGame() {
     cellChoices = ['', '', '', '', '', '', '', '', ''];
-    let currentPlayer = 'X';
+    currentPlayer = 'X';
     cellBlocks.forEach(cell => {
         cell.textContent = ''; 
         cell.addEventListener('click', cellClick, {once: true});
@@ -37,7 +37,7 @@ function startGame() {
 }
 
 function cellClick() {
-    let cellIndex = this.getAttribute('id');
+    let cellIndex = this.getAttribute('index');
     placeMark(this, cellIndex);
     checkWinner();
 }
@@ -81,7 +81,7 @@ function checkWinner() {
         } else {
             scoreO++;
         }
-            
+
     } else if (!cellChoices.includes('')) {
         turnText.textContent = `Draw!`;
         round++;
