@@ -1,5 +1,8 @@
 const cellBlocks = document.querySelectorAll('.cell');
 const gameRound = document.querySelector('.round-text');
+const score = document.querySelector('.score-text');
+//const scoreX = document.querySelector('.score-x');
+//const scoreO = document.querySelector('.score-o');
 const turnText = document.querySelector('.turn-text');
 const restartButton = document.querySelector('.restart-button');
 const winningCombos = [
@@ -16,6 +19,8 @@ const winningCombos = [
 
 let cellChoices = ['', '', '', '', '', '', '', '', ''];
 let currentPlayer = 'X';
+let scoreX = 0;
+let scoreO = 0;
 let round = 1;
 //let playing = false;
 
@@ -31,6 +36,7 @@ function startGame() {
         cell.addEventListener('click', cellClick, {once: true});
     });
     gameRound.textContent = `Round: ${round}`;
+    score.textContent = `X: ${scoreX} / O: ${scoreO}`;
     turnText.textContent = `${currentPlayer}'s turn`;
 //    playing = true;
 }
@@ -69,7 +75,17 @@ function checkWinner() {
 
         if(cellOne == cellTwo && cellTwo == cellThree) {
             winRound = true;
+//            if (currentPlayer = 'X') {
+//                scoreX++;
+//            } else if (currentPlayer = 'O') {
+//                scoreO++;
+//            }
             break;
+//        }
+//        if (currentPlayer = 'X') {
+//            scoreX++;
+//        } else if (currentPlayer = 'O') {
+//            scoreO++;
         }
     }
 
@@ -78,8 +94,14 @@ function checkWinner() {
         cellBlocks.forEach(cell =>
             cell.removeEventListener('click', cellClick));
         round++;
+//        scoreX++;
 //        playing = false;
-
+        if (currentPlayer == 'X') {
+            scoreX++;
+        } else {
+            scoreO++;
+        }
+        
     } else if(!cellChoices.includes('')) {
         turnText.textContent = `Draw!`;
         round++;
