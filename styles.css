@@ -27,8 +27,6 @@
     display: grid;
     grid-template-columns: repeat(3, auto);
     border: 2px solid black;
-    /*justify-content: center;
-    align-content: center;*/
 }
 
 .cell {
@@ -41,6 +39,14 @@
     width: 100px;
     border: 2px solid black;
     font-size: 4.5rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-size: 1.75rem;
 }
 
 button {
