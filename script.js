@@ -11,16 +11,20 @@ const winningCombos = [
     [0, 4, 8],
     [2, 4, 6]
 ];
-let cellChoices = ['', '', '', '', '', '', '', '', ''];
-let currentPlayer = 'X';
+//let cellChoices = ['', '', '', '', '', '', '', '', ''];
+//let currentPlayer = 'X';
 let round = 1;
 let playing = false;
 
 startGame();
 
 function startGame() {
-    cellBlocks.forEach(cell => cell.addEventListener('click', cellClick, {once: true}));
-    restartButton.addEventListener('click', restartGame);
+    let cellChoices = ['', '', '', '', '', '', '', '', ''];
+    let currentPlayer = 'X';
+    cellBlocks.forEach(cell => 
+        cell.addEventListener('click', cellClick, {once: true})
+        );
+//    restartButton.addEventListener('click', restartGame);
     turnText.textContent = `${currentPlayer}'s turn`;
     playing = true;
 }
@@ -28,10 +32,9 @@ function startGame() {
 function cellClick() {
     let cellIndex = this.getAttribute('id');
 
-    /*if(cellChoices[cellIndex])*/
+//    if(cellChoices[cellIndex])
      
     placeMark(this, cellIndex);
-    changePlayer();
     checkWinner();
 }
  
@@ -46,6 +49,7 @@ function changePlayer() {
 }
 
 function checkWinner() {
+    let winRound = false;
 
     for(let i = 0; i < winningCombos.length; i++) {
         let combo = winningCombos[i];
@@ -53,16 +57,29 @@ function checkWinner() {
         let cellTwo = cellChoices[combo[1]];
         let cellThree = cellChoices[combo[2]];
 
-        if(cellOne == cellTwo && cellTwo == cellThree) {
-            turnText.textContent = `${currentPlayer} wins!`
-            playing = false;
+        if(cellOne == '' || cellTwo == '' || cellThree == '') {
+            continue;
+        }
 
-        } else if(!cellChoices.includes('')) {
-            turnText.textContent = `Draw!`;
-            playing = false;
+        if(cellOne == cellTwo && cellTwo == cellThree) {
+            winRound = true;
+            break;
         }
     }
 
+    if (winRound) {
+        turnText.textContent = `${currentPlayer} wins!`;
+        round++;
+        playing = false;
+
+    } else if(!cellChoices.includes('')) {
+        turnText.textContent = `Draw!`;
+        round++;
+        playing = false;
+        
+    } else {
+        changePlayer();
+    }
 } 
 
 function restartGame() {
