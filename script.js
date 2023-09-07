@@ -71,6 +71,8 @@ function checkWinner() {
 
     if (winRound) {
         turnText.textContent = `${currentPlayer} wins!`;
+        cellBlocks.forEach(cell =>
+            cell.removeEventListener('click', cellClick));
         round++;
 //        playing = false;
 
