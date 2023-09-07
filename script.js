@@ -11,22 +11,24 @@ const winningCombos = [
     [0, 4, 8],
     [2, 4, 6]
 ];
-//let cellChoices = ['', '', '', '', '', '', '', '', ''];
-//let currentPlayer = 'X';
+let cellChoices = ['', '', '', '', '', '', '', '', ''];
+let currentPlayer = 'X';
 let round = 1;
-let playing = false;
+//let playing = false;
 
 startGame();
 
+restartButton.addEventListener('click', startGame);
+
 function startGame() {
-    let cellChoices = ['', '', '', '', '', '', '', '', ''];
+    cellChoices = ['', '', '', '', '', '', '', '', ''];
     let currentPlayer = 'X';
-    cellBlocks.forEach(cell => 
-        cell.addEventListener('click', cellClick, {once: true})
-        );
-//    restartButton.addEventListener('click', restartGame);
+    cellBlocks.forEach(cell => {
+        cell.textContent = ''; 
+        cell.addEventListener('click', cellClick, {once: true});
+    });
     turnText.textContent = `${currentPlayer}'s turn`;
-    playing = true;
+//    playing = true;
 }
 
 function cellClick() {
@@ -70,18 +72,18 @@ function checkWinner() {
     if (winRound) {
         turnText.textContent = `${currentPlayer} wins!`;
         round++;
-        playing = false;
+//        playing = false;
 
     } else if(!cellChoices.includes('')) {
         turnText.textContent = `Draw!`;
         round++;
-        playing = false;
+//        playing = false;
         
     } else {
         changePlayer();
     }
 } 
 
-function restartGame() {
+//function restartGame() {
 
-}
+//}
